@@ -1,0 +1,5 @@
+# Vim swap files.
+.*.sw?
+
+# Windows executable files.
+*.exe
