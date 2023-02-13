@@ -1,6 +1,7 @@
 # Sorting Algorithms
 
-This directory contains some classic sorting algorithms:
+This directory contains some classic sorting algorithms, each of which is
+described in some detail in the corresponding sections below.
 
 ## Insertion Sort
 
@@ -21,4 +22,14 @@ algorithms where sorting relatively small arrays appears as a sub-task.
 
 ## Merge Sort
 
-* [merge sort](./merge-sort.go)
+[Merge sort](./merge-sort.go) is one of the standard examples of
+divide-and-conquer algorithms.  It's runtime complexity is $O(n\log n)$, but it
+is rarely used in practice.  Its biggest downside is probably the fact that it
+uses extra storage in its "merge" step (which is where its name comes from).
+Meaning, it's not an in-place sorting algorithm.  Still, it's worth learning
+because of two reasons:
+
+* Its a good example to illustrate the divide-and-conquer approach in algorithm
+  design.
+* The merge procedure used in this algorithm should be learned/known by every
+  "student" of the field of algorithms (and data structures).
