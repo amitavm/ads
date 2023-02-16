@@ -11,17 +11,24 @@ textbook.
 ## Insertion Sort
 
 [Here](./insertion-sort.go) is an implementation of the classic insertion sort
-algorithm in Go.  Even though its runtime complexity is $O(n^2)$, it's supposed
-to be one of the fastest quadratic-time sorting algorithms.  It is often a good
-choice when the array to sort is known to be not too big.  It's advantages are:
+algorithm in Go.  The algorithm works similar to how people normally sort a
+hand of cards: consider each card starting with the second left-most, and put
+it into its "right place" in the group of cards to its left.  The cards to the
+left of the one under consideration is assumed to be already in sorted
+(ascending) order, of course.
+
+Even though the runtime complexity of insertion-sort is $O(n^2),$ it's supposed
+to be one of the fastest quadratic-time sorting algorithms.  Its advantages
+are:
 
 * It is relatively short, and simple to understand.
-* It doesn't require any special pre-processing.
+* It doesn't require any special pre- or post-processing.
 * It is an in-place sorting algorithm, so it doesn't require extra storage.
 
-So the constant factor $c$ in its runtime complexity tends to be small.
-Therefore, insertion-sort is sometimes used in other algorithms where sorting
-relatively small arrays appears as a sub-task.
+Due to these reasons, the constant factor $c$ in its runtime complexity tends
+to be small.  So it's often used in other algorithms&mdash;where sorting
+appears as a sub-task&mdash;instead of other, more sophisticated sorting
+algorithms when the arrays to be sorted are known to be not too big.
 
 <!-- TODO: Add an example? -->
 
