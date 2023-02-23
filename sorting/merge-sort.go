@@ -1,31 +1,31 @@
 package main
 
-import (
-	"fmt"
-)
+func main() {
+	testSort(mergeSort)
+}
 
-// mergeSort sorts an array of integers into ascending order in place, using
-// the merge-sort algorithm.
+// Sort an array of (random) integers using the merge-sort algorithm.
+// (The elements are sorted in ascending order.)
 func mergeSort(arr []int) {
 	n := len(arr)
 	if n <= 1 {
-		return // Nothing to do, it's trivially sorted.
+		return // Nothing to do; arr is already sorted (trivially).
 	}
 
-	p := n / 2
-	mergeSort(arr[:p])
-	mergeSort(arr[p:])
-	merge(arr)
+	m := n / 2 // Index of the "middle" element.
+	mergeSort(arr[:m])
+	mergeSort(arr[m:])
+	merge(arr, m, n)
 }
 
-// Merge the two sorted halves of arr into one sorted sequence.
-func merge(arr []int) {
-	n := len(arr)
-	p := n / 2
+// Merge the elements in the subarrays arr[0:m] and arr[m:e].  The elements in
+// the subarrays are assumed to be already in sorted (ascending) order.
+func merge(arr []int, m int, e int) {
+	res := make([]int, e) // Temporary work area where we merge the elements.
+	var i, j, k int       // These need to be visible beyond the first loop.
 
-	res := make([]int, n)
-	i, j, k := 0, p, 0
-	for ; i < p && j < n; k++ {
+	// Copy elements as long as both subarrays have elements to consider.
+	for i, j, k = 0, m, 0; i < m && j < e; k++ {
 		if arr[i] < arr[j] {
 			res[k] = arr[i]
 			i++
@@ -35,22 +35,15 @@ func merge(arr []int) {
 		}
 	}
 
-	for ; i < p; k++ {
+	// Copy left-over elements, if any.
+	// At most only one of these loops will execute.
+	for ; i < m; i, k = i+1, k+1 {
 		res[k] = arr[i]
-		i++
 	}
-
-	for ; j < n; k++ {
+	for ; j < e; j, k = j+1, k+1 {
 		res[k] = arr[j]
-		j++
 	}
 
+	// Remember to copy the merged elements back into arr before returning.
 	copy(arr, res)
-}
-
-func main() {
-	arr := []int{-2, 44, 36, -19, 0, 58, 7, -69}
-	fmt.Println(arr)
-	mergeSort(arr)
-	fmt.Println(arr)
 }
