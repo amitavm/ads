@@ -8,6 +8,23 @@ However, you should treat this is only as a reference.  If you are learning
 these sorting algorithms, it's much better to learn them from a good algorithms
 textbook.
 
+## Running the Algorithms
+
+If you have Go installed on your system, you can run these algorithms using a
+command line similar to this:
+
+```
+$ go run insertion-sort.go utils.go
+```
+
+(This shows how you would run the insertion-sort algorithm.  You just need to
+use the correct source file name for the other algorithms.)
+
+This shows the command line for a Unix-like system (indicated by the leading
+`$`, which conventionally represents a Bourne command shell), including Mac
+systems.  But the same command line should work on a Windows command prompt
+as well.
+
 ## Insertion Sort
 
 [Here](./insertion-sort.go) is an implementation of the classic insertion sort
