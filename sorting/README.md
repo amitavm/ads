@@ -66,3 +66,35 @@ algorithm.  Still, it's worth learning because of two reasons:
   algorithm design.
 * The merge procedure used in this algorithm should be learned/known by every
   "student" of algorithms (and data structures)!
+
+## Heap Sort
+
+Heap sort is an unusual and clever sorting algorithm.  Unlike the other sorting
+algorithms we discuss here, this one is not that easy to "guess".  Insertion
+sort is a straight-forward translation into code of a process many of us are
+familiar with: as we mentioned above, it's basically the procedure we normally
+follow to sort a hand of cards.  Merge sort almost "suggests itself" once you
+get the idea of the divide-and-conquer approach.  Even quick-sort is
+essentially a divide-and-conquer style algorithm, with a subtle improvement
+over merge-sort, of course.
+
+However, coming up with heap-sort will likely require a genius, in a manner of
+speaking!  It probably came up in the context of some research work.  To sort
+an array, which is a *linear* structure, we simulate a "tree" (a *nonlinear*
+structure), called a *max heap*, right in the array, and impose a
+constraint---the max-heap constraint---on its elements repeatedly to come up
+with the "next biggest element".  That is the gist of it; you can see the
+details in the implementation.
+
+Apart from its cleverness, another nice aspect of heap-sort is its runtime
+complexity: it runs in $O(n\lg n)$ time!  Even though quick-sort is mostly the
+sorting algorithm of choice in practice, heap-sort does have some good things
+to recommend it:
+
+* It has one of the fastest runtimes among sorting algorithms.
+* It's an in-place sorting algorithm.
+* It gives a good amount of intellectual satisfaction when understood!
+
+[Here](./heap-sort.go) is one way to implement heap-sort.  You will probably
+need to go through an ADS textbook to understand it first, before the code
+makes much sense.
