@@ -1,6 +1,8 @@
 // Generate all possible permutations of the elements in a given array/slice.
 // Here we permute a slice of int's to keep things simple.  But the same idea
 // should apply to a slice of anything.
+//
+// TODO: Explain the implementation.
 
 package main
 
